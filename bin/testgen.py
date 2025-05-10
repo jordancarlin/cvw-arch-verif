@@ -146,7 +146,7 @@ def writeSIGUPD_F(rd):
 
 
 def loadFloatReg(reg, val, xlen, flen): # *** eventually load from constant table instead
-  # Assumes that x2 is loaded with the base addres to avoid repeated `la` instructions
+  # Assumes that x2 is loaded with the base address to avoid repeated `la` instructions
   global sigReg # this function can modify the signature register
   lines = "" # f"# Loading value {val} into f{reg}\n"
   if test[-1] == "d" or NaNBox_tests == "D":
@@ -660,7 +660,7 @@ def writeCovVector(desc, rs1, rs2, rd, rs1val, rs2val, immval, rdval, test, xlen
       rs2 = randomNonconflictingReg(test)
     lines = lines + loadFloatReg(rs1, rs1val, xlen, flen)
     if not frm:
-      rm = ", rtz" if (test == "fcvtmod.w.d") else "" # fcvtmod requires explicit rtz rouding mode
+      rm = ", rtz" if (test == "fcvtmod.w.d") else "" # fcvtmod requires explicit rtz rounding mode
       lines = writeTest(lines, rd, xlen, False, test + " x" + str(rd) + ", f" + str(rs1) + rm + " # perform operation\n")
     else:
       testInstr = f"{test} x{rd}, f{rs1}"
@@ -2376,7 +2376,7 @@ if __name__ == '__main__':
           insertTemplate("testgen_header.S")
 
           sigTotal = 0 # total number of bytes in signature
-          sigReg = 3 # start with x4 for signatures ->marina changed it to x3 beucase that what riscv-arch-test uses TO DO
+          sigReg = 3 # start with x4 for signatures ->marina changed it to x3 because that what riscv-arch-test uses TO DO
 
           # add assembly lines to enable fp where needed
           if test in floattypes:

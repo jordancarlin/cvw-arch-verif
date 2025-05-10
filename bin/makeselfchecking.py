@@ -71,7 +71,7 @@ def makeSelfchecking(sig, source, dest, rv64):
                         print("Found begin_signature")
                         secondhalf = False
                         for line in sigfile:
-                            if (rv64): # print 64-bit signatures by combining two 32-bits signature liens
+                            if (rv64): # print 64-bit signatures by combining two 32-bits signature lines
                                 if (secondhalf):
                                     secondhalf = False
                                     outfile.write(f"\t.dword 0x{line.strip()}{firstsig}\n")

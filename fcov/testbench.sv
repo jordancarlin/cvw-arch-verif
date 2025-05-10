@@ -24,7 +24,7 @@ module testbench;
   // Load configuration
   `include "coverage.svh"
 
-  // Set up varialbe lengths
+  // Set up variable lengths
 `ifdef XLEN32
   localparam XLEN = 32;
 `else

@@ -217,7 +217,7 @@ covergroup PMPM_cg with function sample(ins_t ins, logic [XLEN-1:0] pmpcfg [3:0]
 		bins region_unlocked = {1'b0};
 	}
 
-	// Setting pmp_region_1 so incase of TOR we can check lock for pmp_region_0
+	// Setting pmp_region_1 so in case of TOR we can check lock for pmp_region_0
 	pmp_region: coverpoint pmpcfg[1][12:11] {
 		bins OFF   = {2'b00};
 		bins TOR   = {2'b01};

@@ -25,7 +25,7 @@ This repo contains testplans, covergroups, and directed tests for the RVA22S64 p
 | D |x |x | Double-precision floating-point |
 | Zfh |x |x | Half-precision floating-point |
 | Zfhmin |x |x | Half-precision transfers/converts |
-| Zfa |x |x | Additonal floating-point: F, D, Zfh |
+| Zfa |x |x | Additional floating-point: F, D, Zfh |
 | Zaamo |x |x | A extension: atomic memory operations |
 | Zalrsc |x |x | A extension: load reserved/store conditional |
 | Zba |x |x | B extension: address generation |
@@ -44,11 +44,11 @@ This repo contains testplans, covergroups, and directed tests for the RVA22S64 p
 | Zknh |x |x | SHA2 hash |
 | Zicond |x |x | Conditional zero |
 | Zicbom |x |x | Cache block management, architecturally invisible |
-| Zicboz |x |x | Cach block zero |
+| Zicboz |x |x | Cache block zero |
 | Zicsr |x |x | CSR read/write/set/clear instructions |
 | Zifencei |x |x | Instruction/data synchronization |
 | **Privileged** |
-| Zicsr |x |x | Excercise CSRs in each mode: M, S, U, F |
+| Zicsr |x |x | Exercise CSRs in each mode: M, S, U, F |
 | Exceptions |x |x | Exceptions: M, S, U, F, Zc, ZicboU, ZicboS, Zalrsc, Zaamo |
 | Interrupts |x |x | Interrupts: M, S, U, Sstc |
 | VM | SV32 | SV39/48 | Virtual Memory: Svbare, Sv32/39/48, Svade, Svadu, Sstvecd, Svinval, Svnapot |
@@ -60,7 +60,7 @@ This repo contains testplans, covergroups, and directed tests for the RVA22S64 p
 | Zihintpause |x |x | Tested in Zicsr |
 | Zicclsm |x |x | Misaligned access support is implicitly tested through accesses |
 | S{m/s}1p12 |x |x | Implicit in Zicsr |
-| Sstvala |x |x | stval implicity tested through exceptions |
+| Sstvala |x |x | stval implicitly tested through exceptions |
 | Sscounterenw |x |x | Writable scounteren tested through Zicntr |
 | Ssu64xl | |x| RV64 sstatus.UXL tested through Zicsr |
 | **Untested** |
@@ -85,13 +85,13 @@ all categories of illegal instructions.
 * PMA is implementation-defined and cannot be tested explicitly.  The user must
 define the `ACCESS_FAULT_ADDRESS to be an illegal physical address (typically 0
 unless memory is implemented at that address); the Exceptions tests do limited PMA
-testing by ensuring this address thorows an AccessFault.  
+testing by ensuring this address thorows an AccessFault.
 
 
 Notes:
 Unprivileged extensions are being refactored to share code
 
-Use make --jobs to create the SystemVerilog covergroups and assembly language tests.  
+Use make --jobs to create the SystemVerilog covergroups and assembly language tests.
 
 # **Git overview**
 
