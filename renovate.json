@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "addLabels": ["dependencies"],
+  "configMigration": true,
+  "extends": [
+    "config:recommended"
+  ],
+  "pre-commit": {
+    "enabled": true
+  },
+  "git-submodules": {
+    "enabled": true
+  },
+  "pyenv": {
+    "enabled": false
+  }
+}
