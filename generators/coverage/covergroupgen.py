@@ -13,6 +13,7 @@ import math
 import re
 import sys
 from pathlib import Path
+from typing import TextIO
 
 ##################################
 # Type Definitions
@@ -221,8 +222,8 @@ SEW_DEPENDENT_CPS = [
 ]
 
 def write_instrs(
-    f,
-    finit,
+    f: TextIO,
+    finit: TextIO,
     k: list[str],
     covergroup_templates: CovergroupTemplates,
     tp: dict[str, list[str]],
@@ -238,8 +239,8 @@ def write_instrs(
     the column must be empty.
 
     Args:
-        f: File handle for coverage output
-        finit: File handle for initialization output
+        f: Text file handle for coverage output (opened for writing)
+        finit: Text file handle for initialization output (opened for writing)
         k: List of instruction mnemonics
         covergroup_templates: Dictionary of template names to content
         tp: Test plan dictionary mapping instructions to coverpoints
@@ -291,7 +292,7 @@ def write_instrs(
                 f.write(customize_template(covergroup_templates, "endgroup", arch, instr, missing_templates))
 
 def write_covergroup_sample_functions(
-    f,
+    f: TextIO,
     k: list[str],
     covergroup_templates: CovergroupTemplates,
     tp: dict[str, list[str]],
@@ -303,7 +304,7 @@ def write_covergroup_sample_functions(
     """Write covergroup sample functions for instructions.
 
     Args:
-        f: File handle for output
+        f: Text file handle for output (opened for writing)
         k: List of instruction mnemonics
         covergroup_templates: Dictionary of template names to content
         tp: Test plan dictionary mapping instructions to coverpoints
@@ -331,7 +332,7 @@ def write_covergroup_sample_functions(
                 f.write(customize_template(covergroup_templates, "covergroup_sample", arch, instr, missing_templates))
 
 def write_instruction_sample_function(
-    f,
+    f: TextIO,
     k: list[str],
     covergroup_templates: CovergroupTemplates,
     tp: dict[str, list[str]],
@@ -343,7 +344,7 @@ def write_instruction_sample_function(
     """Write instruction sample functions.
 
     Args:
-        f: File handle for output
+        f: Text file handle for output (opened for writing)
         k: List of instruction mnemonics
         covergroup_templates: Dictionary of template names to content
         tp: Test plan dictionary mapping instructions to coverpoints
