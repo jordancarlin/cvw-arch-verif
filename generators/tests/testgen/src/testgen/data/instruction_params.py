@@ -6,6 +6,7 @@
 ##################################
 
 from dataclasses import dataclass
+from typing import Any
 
 from testgen.data.test_data import TestData
 from testgen.utils.immediates import gen_random_imm
@@ -65,7 +66,7 @@ class InstructionParams:
 
 
 def generate_random_params(
-    test_data: TestData, instr_type: str, allow_x0: bool = True, **fixed_params: int | str | bool | None
+    test_data: TestData, instr_type: str, allow_x0: bool = True, **fixed_params: Any
 ) -> InstructionParams:
     """
     Generate random parameters for an instruction.

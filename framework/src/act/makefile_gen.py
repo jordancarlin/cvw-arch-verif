@@ -9,9 +9,18 @@
 
 import importlib.resources
 from pathlib import Path
+from typing import TypedDict
 
 from act.config import Config
 from act.parse_test_constraints import TestMetadata
+
+
+class ConfigData(TypedDict):
+    """Type definition for configuration data dictionary."""
+
+    config: Config
+    xlen: int
+    selected_tests: dict[str, TestMetadata]
 
 # Makefile templates
 MAKEFILE_HEADER = """
@@ -314,7 +323,7 @@ def gen_coverage_targets(
 
 
 def generate_makefiles(
-    configs: list[dict[str, Config | TestMetadata | Path | int]],
+    configs: list[ConfigData],
     rv32_common_tests: dict[str, TestMetadata],
     rv64_common_tests: dict[str, TestMetadata],
     tests_dir: Path,
